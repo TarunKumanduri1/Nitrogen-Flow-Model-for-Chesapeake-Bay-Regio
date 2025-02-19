@@ -10,8 +10,8 @@ Further we remove outliers in average yield data from analysis.
 import pandas as pd
 import numpy as np
 import os
-os.chdir("C:\\Users\\Tarun Kumanduri\\Box\\AT Research\\AG\\Model\\codeshare\\codeshare\\model_and_scenarios\\scenarios")
-#os.chdir("path/to/model_and_scenarios/scenarios") # CHANGE TO PATH IN LOCAL MACHINE
+
+os.chdir("path/to/model_and_scenarios/scenarios") # CHANGE TO PATH IN LOCAL MACHINE
 
 folder_name_output = 'trade_simulation_V3_5'
 folder_name_plots = 'trade-simulation_V3_5'
@@ -36,10 +36,10 @@ meat_trade2 = pd.read_csv('../../output/trade_disaggregation_v2/sctg7_trade_disa
 meat_trade = pd.concat([meat_trade1, meat_trade2, egg_trade])
 meat_trade['commodity'] = meat_trade['commodity'].replace({'chicken_meat':'broiler',
                         'beef':'cow_beef', 'pork':'pig', 'milk':'cow_milk', 'egg':'layer'})
-chesapeake_counties = pd.read_csv('C:\\Users\\Tarun Kumanduri\\Box\\AT Research\\AG\\Model\\codeshare\\codeshare\\output\\nitrogen_flow_model\\counties_FIPS_ChesapeakeBay.csv')
-required_crop_nitrogen = pd.read_csv('C:\\Users\\Tarun Kumanduri\\Box\\AT Research\\AG\\Model\\codeshare\\codeshare\\output\\results_2017\\nitrogen_flow_model_v4\\stage_1_7\\crop_processing_nitrogen.csv')
-animal_required_nitrogen = pd.read_csv('C:\\Users\\Tarun Kumanduri\\Box\\AT Research\\AG\\Model\\codeshare\\codeshare\\output\\results_2017\\nitrogen_flow_model_v4\stage_1_7\\animal_nitrogen.csv')
-required_animal_product_nitrogen =  pd.read_csv('C:\\Users\\Tarun Kumanduri\\Box\\AT Research\\AG\\Model\\codeshare\\codeshare\\output\\results_2017\\nitrogen_flow_model_v4\\stage_1_7\\animal_product_nitrogen.csv')
+chesapeake_counties = pd.read_csv('codeshare\\output\\nitrogen_flow_model\\counties_FIPS_ChesapeakeBay.csv')
+required_crop_nitrogen = pd.read_csv('codeshare\\output\\results_2017\\nitrogen_flow_model_v4\\stage_1_7\\crop_processing_nitrogen.csv')
+animal_required_nitrogen = pd.read_csv('codeshare\\output\\results_2017\\nitrogen_flow_model_v4\stage_1_7\\animal_nitrogen.csv')
+required_animal_product_nitrogen =  pd.read_csv('codeshare\\output\\results_2017\\nitrogen_flow_model_v4\\stage_1_7\\animal_product_nitrogen.csv')
 
 # Convert planting area dataframe from wide to long format
 cols = area.columns
@@ -735,7 +735,7 @@ nitrogen_loss6 = dat2['nitrogen_loss6'].sum()/1000000
 nitrogen_loss7 = dat2['nitrogen_loss7'].sum()/1000000
 total_nitrogen_loss = (dat['nitrogen_loss1'].sum()+dat['nitrogen_loss2'].sum()+dat2['nitrogen_loss3'].sum()+dat2['nitrogen_loss4'].sum()+dat2['nitrogen_loss5'].sum()+dat2['nitrogen_loss6'].sum()+dat2['nitrogen_loss7'].sum())/1000000
 
-desired_dir_path = r'C:\Users\Tarun Kumanduri\Box\AT Research\AG\Model\codeshare\codeshare\output\results_2017\nitrogen_flow_model_v4'
+desired_dir_path = r'codeshare\output\results_2017\nitrogen_flow_model_v4'
 full_path = os.path.join(desired_dir_path, folder_name_output)
 if not os.path.exists(full_path):
     os.makedirs(full_path)
