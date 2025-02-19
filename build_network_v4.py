@@ -10,8 +10,6 @@ import pandas as pd
 import numpy as np
 import os
 
-user = 'G22824390'
-os.chdir("C:\\Users\\%s\\Box\\AT Research\\AG\\Model\\codeshare\\codeshare\\model_and_scenarios\\scenarios"%user)
 #os.chdir("path/to/model_and_scenarios/scenarios") # CHANGE TO PATH IN LOCAL MACHINE
 
 folder_name_output = 'initial'
